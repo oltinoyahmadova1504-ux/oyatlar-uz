@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oyatlar Uz</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7f4;
+  color: #173f35;
+}
+
+header {
+  background: #064f3e;
+  color: white;
+  padding: 22px 18px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+header p {
+  margin: 8px 0 0;
+  font-size: 15px;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+}
+
+.welcome {
+  background: white;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.welcome h2 {
+  font-size: 25px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px 10px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.card:active {
+  transform: scale(0.96);
+}
+
+.icon {
+  font-size: 35px;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+}
+
+.card p {
+  font-size: 13px;
+  color: #666;
+}
+
+button {
+  background: #c9a936;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 30px;
+  font-size: 17px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.section {
+  display: none;
+  background: white;
+  margin-top: 20px;
+  padding: 22px;
+  border-radius: 18px;
+}
+
+.section.active {
+  display: block;
+}
+
+.back {
+  background: #064f3e;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 10px;
+  color: #777;
+  font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📖 Oyatlar Uz</h1>
+  <p>Qur'onni o‘rganish va yodlash platformasi</p>
+</header>
+
+<div class="container">
+
+  <div class="welcome">
+    <h2>Assalomu alaykum! 🌙</h2>
+    <p>
+      Qur'on oyatlarini tajvid, tarjima va tafsir bilan
+      o‘rganing.
+    </p>
+
+    <button onclick="boshlash()">Boshlash</button>
+  </div>
+
+  <div id="menu" class="cards">
+
+    <div class="card" onclick="och('quran')">
+      <div class="icon">📖</div>
+      <h3>Qur'on</h3>
+      <p>Oyatlarni o‘rganish</p>
+    </div>
+
+    <div class="card" onclick="och('tajvid')">
+      <div class="icon">🟢</div>
+      <h3>Tajvid</h3>
+      <p>To‘g‘ri talaffuz</p>
+    </div>
+
+    <div class="card" onclick="och('tarjima')">
+      <div class="icon">🇺🇿</div>
+      <h3>Tarjima</h3>
+      <p>O‘zbekcha ma'nosi</p>
+    </div>
+
+    <div class="card" onclick="och('tafsir')">
+      <div class="icon">📚</div>
+      <h3>Tafsir</h3>
+      <p>Oyat mazmuni</p>
+    </div>
+
+    <div class="card" onclick="och('yodlash')">
+      <div class="icon">🧠</div>
+      <h3>Yodlash</h3>
+      <p>Yod olish rejasi</p>
+    </div>
+
+    <div class="card" onclick="och('test')">
+      <div class="icon">📝</div>
+      <h
