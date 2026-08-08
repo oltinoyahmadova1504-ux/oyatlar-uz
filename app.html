@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oyatlar Uz</title>
+
+<title>Oyatlar Uz — Qur'on</title>
 
 <style>
 * {
@@ -13,25 +14,23 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f5f7f4;
+  background: #f4f7f4;
   color: #173f35;
 }
 
 header {
   background: #064f3e;
   color: white;
-  padding: 22px 18px;
+  padding: 20px;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 header h1 {
   margin: 0;
-  font-size: 30px;
-}
-
-header p {
-  margin: 8px 0 0;
-  font-size: 15px;
+  color: #f2d16b;
 }
 
 .container {
@@ -40,84 +39,103 @@ header p {
   padding: 20px;
 }
 
-.welcome {
-  background: white;
-  border-radius: 20px;
-  padding: 25px;
+.subtitle {
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-
-.welcome h2 {
-  font-size: 25px;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  margin-top: 20px;
-}
-
-.card {
-  background: white;
-  padding: 20px 10px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.card:active {
-  transform: scale(0.96);
-}
-
-.icon {
-  font-size: 35px;
-}
-
-.card h3 {
-  margin: 10px 0 5px;
-}
-
-.card p {
-  font-size: 13px;
   color: #666;
+  margin-bottom: 20px;
 }
 
-button {
-  background: #c9a936;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  padding: 14px 30px;
-  font-size: 17px;
-  margin-top: 15px;
-  cursor: pointer;
-}
-
-.section {
-  display: none;
+.sura {
   background: white;
-  margin-top: 20px;
-  padding: 22px;
   border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 14px;
+  box-shadow: 0 3px 12px rgba(0,0,0,.08);
+  cursor: pointer;
+  transition: .2s;
 }
 
-.section.active {
+.sura:active {
+  transform: scale(.98);
+}
+
+.sura-number {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #064f3e;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.sura-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sura-info {
+  margin-top: 8px;
+  color: #777;
+  font-size: 14px;
+}
+
+.oyat-page {
+  display: none;
+  min-height: 100vh;
+  background: #064f3e;
+  color: white;
+  padding: 25px 18px 50px;
+  text-align: center;
+}
+
+.oyat-page.active {
   display: block;
 }
 
-.back {
-  background: #064f3e;
+.arab {
+  direction: rtl;
+  font-size: 35px;
+  line-height: 2.1;
+  margin: 35px 0;
 }
 
-footer {
-  text-align: center;
-  padding: 30px 10px;
-  color: #777;
-  font-size: 13px;
+.translation {
+  font-size: 20px;
+  line-height: 1.7;
+  background: rgba(255,255,255,.08);
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.tafsir {
+  margin-top: 18px;
+  background: rgba(255,255,255,.08);
+  padding: 20px;
+  border-radius: 18px;
+  line-height: 1.6;
+}
+
+.back {
+  margin-top: 25px;
+  padding: 13px 28px;
+  border: 0;
+  border-radius: 30px;
+  background: #d1ad3f;
+  color: white;
+  font-size: 16px;
+}
+
+.audio {
+  margin-top: 20px;
+  padding: 13px 25px;
+  border: 0;
+  border-radius: 30px;
+  background: white;
+  color: #064f3e;
+  font-size: 16px;
 }
 </style>
 </head>
@@ -126,53 +144,176 @@ footer {
 
 <header>
   <h1>📖 Oyatlar Uz</h1>
-  <p>Qur'onni o‘rganish va yodlash platformasi</p>
 </header>
 
-<div class="container">
+<div id="suralar" class="container">
 
-  <div class="welcome">
-    <h2>Assalomu alaykum! 🌙</h2>
-    <p>
-      Qur'on oyatlarini tajvid, tarjima va tafsir bilan
-      o‘rganing.
-    </p>
+  <h2>Qur'on suralari</h2>
 
-    <button onclick="boshlash()">Boshlash</button>
+  <p class="subtitle">
+    O'rganish uchun surani tanlang
+  </p>
+
+  <div class="sura" onclick="ochSura('fotiha')">
+    <span class="sura-number">1</span>
+    <span class="sura-name">Al-Fotiha</span>
+    <div class="sura-info">7 oyat</div>
   </div>
 
-  <div id="menu" class="cards">
+  <div class="sura" onclick="ochSura('ixlos')">
+    <span class="sura-number">112</span>
+    <span class="sura-name">Al-Ixlos</span>
+    <div class="sura-info">4 oyat</div>
+  </div>
 
-    <div class="card" onclick="och('quran')">
-      <div class="icon">📖</div>
-      <h3>Qur'on</h3>
-      <p>Oyatlarni o‘rganish</p>
-    </div>
+  <div class="sura" onclick="ochSura('falaq')">
+    <span class="sura-number">113</span>
+    <span class="sura-name">Al-Falaq</span>
+    <div class="sura-info">5 oyat</div>
+  </div>
 
-    <div class="card" onclick="och('tajvid')">
-      <div class="icon">🟢</div>
-      <h3>Tajvid</h3>
-      <p>To‘g‘ri talaffuz</p>
-    </div>
+  <div class="sura" onclick="ochSura('nos')">
+    <span class="sura-number">114</span>
+    <span class="sura-name">An-Nos</span>
+    <div class="sura-info">6 oyat</div>
+  </div>
 
-    <div class="card" onclick="och('tarjima')">
-      <div class="icon">🇺🇿</div>
-      <h3>Tarjima</h3>
-      <p>O‘zbekcha ma'nosi</p>
-    </div>
+  <div class="sura" onclick="ochSura('masad')">
+    <span class="sura-number">111</span>
+    <span class="sura-name">Al-Masad</span>
+    <div class="sura-info">5 oyat</div>
+  </div>
 
-    <div class="card" onclick="och('tafsir')">
-      <div class="icon">📚</div>
-      <h3>Tafsir</h3>
-      <p>Oyat mazmuni</p>
-    </div>
+</div>
 
-    <div class="card" onclick="och('yodlash')">
-      <div class="icon">🧠</div>
-      <h3>Yodlash</h3>
-      <p>Yod olish rejasi</p>
-    </div>
 
-    <div class="card" onclick="och('test')">
-      <div class="icon">📝</div>
-      <h
+<!-- OYAT SAHIFASI -->
+
+<div id="oyatPage" class="oyat-page">
+
+  <h2 id="suraTitle"></h2>
+
+  <div id="oyatNumber"></div>
+
+  <div id="arab" class="arab"></div>
+
+  <div id="translation" class="translation"></div>
+
+  <div id="tafsir" class="tafsir"></div>
+
+  <button class="audio">
+    🔊 Tinglash
+  </button>
+
+  <br>
+
+  <button class="back" onclick="orqaga()">
+    ← Suralarga qaytish
+  </button>
+
+</div>
+
+
+<script>
+
+const suralar = {
+
+  fotiha: {
+    nom: "Al-Fotiha",
+    oyatlar: [
+      "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+      "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+      "الرَّحْمَٰنِ الرَّحِيمِ",
+      "مَالِكِ يَوْمِ الدِّينِ",
+      "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+      "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+      "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ"
+    ]
+  },
+
+  ixlos: {
+    nom: "Al-Ixlos",
+    oyatlar: [
+      "قُلْ هُوَ اللَّهُ أَحَدٌ",
+      "اللَّهُ الصَّمَدُ",
+      "لَمْ يَلِدْ وَلَمْ يُولَدْ",
+      "وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ"
+    ]
+  },
+
+  falaq: {
+    nom: "Al-Falaq",
+    oyatlar: [
+      "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ",
+      "مِنْ شَرِّ مَا خَلَقَ",
+      "وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ",
+      "وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ",
+      "وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ"
+    ]
+  },
+
+  nos: {
+    nom: "An-Nos",
+    oyatlar: [
+      "قُلْ أَعُوذُ بِرَبِّ النَّاسِ",
+      "مَلِكِ النَّاسِ",
+      "إِلَٰهِ النَّاسِ",
+      "مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ",
+      "الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ",
+      "مِنَ الْجِنَّةِ وَالنَّاسِ"
+    ]
+  },
+
+  masad: {
+    nom: "Al-Masad",
+    oyatlar: [
+      "تَبَّتْ يَدَا أَبِي لَهَبٍ وَتَبَّ",
+      "مَا أَغْنَىٰ عَنْهُ مَالُهُ وَمَا كَسَبَ",
+      "سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ",
+      "وَامْرَأَتُهُ حَمَّالَةَ الْحَطَبِ",
+      "فِي جِيدِهَا حَبْلٌ مِنْ مَسَدٍ"
+    ]
+  }
+
+};
+
+
+function ochSura(sura) {
+
+  document.getElementById("suralar").style.display = "none";
+
+  const data = suralar[sura];
+
+  document.getElementById("oyatPage").classList.add("active");
+
+  document.getElementById("suraTitle").innerText =
+    data.nom;
+
+  document.getElementById("oyatNumber").innerText =
+    data.oyatlar.length + " oyat";
+
+  document.getElementById("arab").innerText =
+    data.oyatlar[0];
+
+  document.getElementById("translation").innerText =
+    "O'zbekcha tarjima bu yerga ulanadi.";
+
+  document.getElementById("tafsir").innerText =
+    "Tafsir ma'lumoti bu yerga ulanadi.";
+
+}
+
+
+function orqaga() {
+
+  document.getElementById("oyatPage").classList.remove("active");
+
+  document.getElementById("suralar").style.display =
+    "block";
+
+}
+
+</script>
+
+</body>
+</html>
