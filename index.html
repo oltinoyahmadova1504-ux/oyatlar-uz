@@ -1,23 +1,301 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oyatlar Uz</title>
- <link rel="stylesheet" href="style.css"> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Oyatlar Uz</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #004d40;
+  color: white;
+}
+
+.start {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 25px;
+}
+
+.start h1 {
+  font-size: 45px;
+  color: #f5d061;
+  margin-bottom: 30px;
+}
+
+.start p {
+  font-size: 21px;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+button {
+  margin-top: 35px;
+  padding: 18px 65px;
+  border: none;
+  border-radius: 40px;
+  background: #d4af37;
+  color: white;
+  font-size: 22px;
+}
+
+.oyatlar {
+  display: none;
+}
+
+.oyat {
+  min-height: 100vh;
+  padding: 45px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+  text-align: center;
+}
+
+.arab {
+  direction: rtl;
+  font-size: 34px;
+  line-height: 2;
+  margin-bottom: 30px;
+}
+
+.tarjima {
+  font-size: 21px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.tafsir {
+  background: rgba(255,255,255,0.1);
+  border-radius: 18px;
+  padding: 20px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.raqam {
+  color: #f5d061;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.oyatlar {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+</style>
 </head>
 
 <body>
 
+<!-- BOSHLANG'ICH SAHIFA -->
+
+<div class="start" id="start">
+
   <h1>📖 Oyatlar Uz</h1>
 
   <p>
-    Qur'on oyatlarini tajvid, o'zbekcha tarjima va tafsir bilan o'rganing.
+    Qur'on oyatlarini tajvid, o'zbekcha tarjima
+    va tafsir bilan o'rganing.
   </p>
 
-  <button>
+  <button onclick="boshlash()">
     Boshlash
   </button>
+
+</div>
+
+
+<!-- OYATLAR -->
+
+<div class="oyatlar" id="oyatlar">
+
+  <div class="oyat">
+
+    <div class="raqam">FOTIHA SURASI</div>
+
+    <div class="arab">
+      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+    </div>
+
+    <div class="tarjima">
+      Mehribon va rahmli Allohning nomi bilan.
+    </div>
+
+    <div class="tafsir">
+      Har bir yaxshi ishni Allohning nomi bilan boshlash
+      bandaning Allohga bo'lgan bog'liqligini bildiradi.
+    </div>
+
+  </div>
+
+
+  <div class="oyat">
+
+    <div class="raqam">FOTIHA — 1-OYAT</div>
+
+    <div class="arab">
+      الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+    </div>
+
+    <div class="tarjima">
+      Barcha hamd olamlarning Robbi Allohgadir.
+    </div>
+
+    <div class="tafsir">
+      Barcha maqtov va shukrga loyiq Zot Allohdir.
+      U barcha mavjudotlarning Parvardigoridir.
+    </div>
+
+  </div>
+
+
+  <div class="oyat">
+
+    <div class="raqam">FOTIHA — 2-OYAT</div>
+
+    <div class="arab">
+      الرَّحْمَٰنِ الرَّحِيمِ
+    </div>
+
+    <div class="tarjima">
+      U Mehribondir, Rahmlidir.
+    </div>
+
+    <div class="tafsir">
+      Allohning rahmati barcha mavjudotlarni qamrab oladi.
+      U bandalariga nihoyatda mehribondir.
+    </div>
+
+  </div>
+
+
+  <div class="oyat">
+
+    <div class="raqam">FOTIHA — 3-OYAT</div>
+
+    <div class="arab">
+      مَالِكِ يَوْمِ الدِّينِ
+    </div>
+
+    <div class="tarjima">
+      Jazo kunining Egasi.
+    </div>
+
+    <div class="tafsir">
+      Qiyomat kuni barcha insonlar qilgan amallari uchun
+      hisob beradi va hukm Allohning ixtiyoridadir.
+    </div>
+
+  </div>
+
+
+  <div class="oyat">
+
+    <div class="raqam">FOTIHA — 4-OYAT</div>
+
+    <div class="arab">
+      إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+    </div>
+
+    <div class="tarjima">
+      Faqat Sengagina ibodat qilamiz va faqat Sendangina yordam so'raymiz.
+    </div>
+
+    <div class="tafsir">
+      Banda ibodatni faqat Allohga bag'ishlaydi va barcha
+      ishlarida Undan yordam so'raydi.
+    </div>
+
+  </div>
+
+
+  <div class="oyat">
+
+    <div class="raqam">FOTIHA — 5-OYAT</div>
+
+    <div class="arab">
+      اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
+    </div>
+
+    <div class="tarjima">
+      Bizni to'g'ri yo'lga hidoyat qil.
+    </div>
+
+    <div class="tafsir">
+      Mo'min Allohdan haq yo'lda sobit bo'lishni
+      va to'g'ri yo'lga boshlashini so'raydi.
+    </div>
+
+  </div>
+
+
+  <div class="oyat">
+
+    <div class="raqam">FOTIHA — 6-OYAT</div>
+
+    <div class="arab">
+      صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ
+    </div>
+
+    <div class="tarjima">
+      Ne'mat bergan zotlaring yo'liga.
+    </div>
+
+    <div class="tafsir">
+      Bu yo'l Allohning hidoyati va ne'matiga erishgan
+      solih bandalar yo'lidir.
+    </div>
+
+  </div>
+
+
+  <div class="oyat">
+
+    <div class="raqam">FOTIHA — 7-OYAT</div>
+
+    <div class="arab">
+      غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
+    </div>
+
+    <div class="tarjima">
+      G'azabga uchraganlarning ham, adashganlarning ham yo'liga emas.
+    </div>
+
+    <div class="tafsir">
+      Banda haq yo'ldan og'ib ketishdan Allohdan panoh so'raydi
+      va to'g'ri yo'lda yurishni tilaydi.
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+function boshlash() {
+
+  document.getElementById("start").style.display = "none";
+
+  document.getElementById("oyatlar").style.display = "block";
+
+}
+
+</script>
 
 </body>
 </html>
